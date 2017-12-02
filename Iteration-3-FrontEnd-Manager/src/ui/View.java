@@ -19,6 +19,18 @@ public class View extends BorderPane{
 			private Button filterButton;
 		private Table tableView;
 		private HBox actionButtons;
+		
+		private HBox inventoryOptions;
+			private ComboBox<String> invSearchColumns;
+			private TextField invSearchField;
+			private Button invSearchButton;
+		private Table invetoryTable;
+		
+		private HBox supplierOptions;
+			private ComboBox<String> supSearchColumns;
+			private TextField supSearchField;
+			private Button supSearchButton;
+		private Table supplierTable;
 			
 	public View() {
 		setId("View");
@@ -34,8 +46,82 @@ public class View extends BorderPane{
 		setCenter(tableView);
 	}
 	
-	private void initActionButtons() {
-			
+	public void updatePaneViewToInvetory(){
+		initInventoryOptions();
+		initInventoryTable();
+		initInvActionButtons();
+		
+		setTop(inventoryOptions);
+		setCenter(invetoryTable);
+	}
+
+
+	private void initInventoryOptions() {
+		/* Inventory Search Options Initialization */
+		inventoryOptions = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
+		inventoryOptions.setPrefHeight(Values.INVENTORY_OPTIONS_PREF_HEIGHT);
+		inventoryOptions.setPadding(new Insets(10, 0, 0, 0));
+		
+		/* Inventory Search Columns Initialization */
+		invSearchColumns = new ComboBox<String>();
+		invSearchColumns.setItems(fillInventoryComboBox());
+		
+		/* Inventory Search Field Initialization */
+		invSearchField = new TextField();
+		invSearchField.setMinWidth(Values.SEARCH_FIELD_WIDTH);
+		
+		/* Inventory Search Button Initialization */
+		invSearchButton = new Button("SEARCH");
+		
+		/* Assembly of previously specified components*/
+		inventoryOptions.getChildren().addAll(invSearchColumns, invSearchField, invSearchButton);
+	}
+	
+	private void initInventoryTable() {
+		invetoryTable = new Table();
+	}
+	
+	private void initInvActionButtons() {
+		
+	}
+	
+	public void updatePaneViewToSupplier(){
+		initSupplierOptions();
+		initSupplierTable();
+		initSupActionButtons();
+		
+		setTop(supplierOptions);
+		setCenter(supplierTable);
+	}
+	
+	private void initSupplierOptions() {
+		/* Supplier Search Options Initialization */
+		supplierOptions = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
+		supplierOptions.setPrefHeight(Values.INVENTORY_OPTIONS_PREF_HEIGHT);
+		supplierOptions.setPadding(new Insets(10, 0, 0, 0));
+		
+		/* Supplier Search Columns Initialization */
+		supSearchColumns = new ComboBox<String>();
+		supSearchColumns.setItems(fillSupplierComboBox());
+		
+		/* Supplier Search Field Initialization */
+		supSearchField = new TextField();
+		supSearchField.setMinWidth(Values.SEARCH_FIELD_WIDTH);
+		
+		/* Supplier Search Button Initialization */
+		supSearchButton = new Button("SEARCH");
+		
+		/* Assembly of previously specified components*/
+		supplierOptions.getChildren().addAll(supSearchColumns, supSearchField, supSearchButton);
+	}
+
+	private void initSupplierTable() {
+		supplierTable = new Table();
+	}
+	
+	private void initSupActionButtons() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	private void initTableView() {
@@ -68,12 +154,36 @@ public class View extends BorderPane{
 		filterOptions.getChildren().addAll(searchColumns, searchField, searchButton, filterButton);
 	}
 	
+	private void initActionButtons() {
+		
+	}
+	
 	/* This function is for the Back End Developers */
 	private ObservableList<String> fillComboBox() {
 		ObservableList<String> list = FXCollections.observableArrayList();
 		
 		/* Test Cases */
 			list.addAll("Item Code", "Description");
+		
+		return list;
+	}
+	
+	/* This function is for the Back End Developers */
+	private ObservableList<String> fillInventoryComboBox() {
+		ObservableList<String> list = FXCollections.observableArrayList();
+		
+		/* Test Cases */
+			list.addAll("Item Code", "Description", "Supplier");
+		
+		return list;
+	}
+	
+	/* This function is for the Back End Developers */
+	private ObservableList<String> fillSupplierComboBox() {
+		ObservableList<String> list = FXCollections.observableArrayList();
+		
+		/* Test Cases */
+			list.addAll("Supplier Code", "Name", "Contact Person");
 		
 		return list;
 	}

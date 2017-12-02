@@ -57,6 +57,11 @@ public class ManagerView extends BorderPane {
 		
 		/* Inventory Button */
 		inventoryBtn.setOnAction(e -> {
+			paneView.updatePaneViewToInvetory();
+			topBox.getChildren().remove(banner);
+			banner = new InventoryBanner();
+			HBox.setHgrow(banner, Priority.ALWAYS); 
+			topBox.getChildren().add(banner);
 			
 		});
 		
@@ -67,7 +72,11 @@ public class ManagerView extends BorderPane {
 		
 		/* Suppliers Button */
 		suppliersBtn.setOnAction(e -> {
-			
+			paneView.updatePaneViewToSupplier();
+			topBox.getChildren().remove(banner);
+			banner = new SupplierBanner();
+			HBox.setHgrow(banner, Priority.ALWAYS); 
+			topBox.getChildren().add(banner);
 		});
 	}
 	
