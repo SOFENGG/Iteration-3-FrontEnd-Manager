@@ -26,7 +26,7 @@ public class Driver extends Application{
 			
 			/* Scene Creation */
 				Scene scene = new Scene(new Group(), primaryStage.getWidth(), primaryStage.getHeight());
-			
+			scene.getStylesheets().add("./StyleSheet.css");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		/* Super Controller End */

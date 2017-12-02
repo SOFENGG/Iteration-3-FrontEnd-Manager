@@ -76,7 +76,7 @@ public class ManagerView extends BorderPane {
 		/* Top Box Initialization */
 		topBox = new HBox(Values.TOP_BOX_ITEM_SPACING);
 		topBox.setPadding(new Insets(Values.TOP_BOX_TOP_PADDING, Values.TOP_BOX_RIGHT_PADDING, Values.TOP_BOX_BOTTOM_PADDING, Values.TOP_BOX_LEFT_PADDING));
-		
+		//topBox.setId("");
 		/* Logo Initialization */
 		logo = new Rectangle(Values.LOGO_WIDTH, Values.LOGO_HEIGHT);
 		
@@ -100,6 +100,10 @@ public class ManagerView extends BorderPane {
 		navMenu = new VBox(Values.NAV_MENU_ITEM_SPACING);
 		navMenu.setPrefWidth(Values.NAV_MENU_PREF_WIDTH);
 		navMenu.getChildren().addAll(transactionBtn, purchaseOrdBtn, salesReportBtn, inventoryBtn, custDebtsBtn, suppliersBtn);
+		navMenu.getChildren().forEach(node -> {
+			Button button = (Button) node;
+			button.setPrefWidth(navMenu.getPrefWidth());
+		});
 		
 		/* Pane View Initialization */
 		paneView  = new View();

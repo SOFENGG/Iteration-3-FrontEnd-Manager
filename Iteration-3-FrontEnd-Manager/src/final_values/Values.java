@@ -30,7 +30,7 @@ public class Values {
 	public final static double MID_BOX_RIGHT_PADDING = 50;
 	public final static double MID_BOX_BOTTOM_PADDING = 50;
 	
-	public final static double NAV_MENU_ITEM_SPACING = 10;
+	public final static double NAV_MENU_ITEM_SPACING = 20;
 	
 	public final static double FILTER_OPTIONS_ITEM_SPACING = 10;
 }

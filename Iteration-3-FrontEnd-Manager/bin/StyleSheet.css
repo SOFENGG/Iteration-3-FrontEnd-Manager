@@ -1,0 +1,8 @@
+#Banner {
+	-fx-border-radius: 10;
+	-fx-border-color: #000000;
+}
+
+#View {
+	-fx-border-color: #000000;
+}

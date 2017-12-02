@@ -21,7 +21,8 @@ public class View extends BorderPane{
 		private HBox actionButtons;
 			
 	public View() {
-		setStyle("-fx-border-color: #000000;");
+		setId("View");
+		//setStyle("-fx-border-color: #000000;"); 
 	}
 	
 	public void updatePaneView() {
