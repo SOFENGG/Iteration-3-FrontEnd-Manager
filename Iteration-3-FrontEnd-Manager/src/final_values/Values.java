@@ -13,6 +13,8 @@ public class Values {
 	
 	public final static double FILTER_OPTIONS_PREF_HEIGHT = 50;
 	
+	public final static double INVENTORY_OPTIONS_PREF_HEIGHT = 50;
+	
 	public final static double SEARCH_FIELD_WIDTH = 100;
 
 	/* Insets for Padding and Spacing*/
@@ -33,4 +35,6 @@ public class Values {
 	public final static double NAV_MENU_ITEM_SPACING = 20;
 	
 	public final static double FILTER_OPTIONS_ITEM_SPACING = 10;
+	
+	public final static double INVENTORY_OPTIONS_ITEM_SPACING = 10;
 }
