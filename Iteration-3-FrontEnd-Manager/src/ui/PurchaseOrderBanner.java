@@ -1,65 +1,62 @@
 package ui;
 
 import final_values.Values;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class InventoryBanner extends Banner{
+public class PurchaseOrderBanner extends Banner {
 	
 	/* Outer Left Section */
-	private TextField itemCodeField;
-	private TextField ItemDescriptionField;
+	private TextField supplierNameField;
+	private TextField supplierAddressField;
 	
 	/* Inner Left Section */
-	private TextField supplierField;
-	private TextField unitPriceField;
+	private TextField invoiceField;
+	private TextField documentTitleField;
 	
 	/* Inner Right Section */
 	private TextField requisitionerField;	
-	private Button editConfirm;
-		
-		
-	public InventoryBanner() {
-		super();
-		updateToInventoryBanner();
-	}
+	private Button supplierConfirm;
 	
-	private void updateToInventoryBanner() {
-		/* Banner Title */
-		bannerTitle.setText(Values.BANNER_INVENTORY);
-		initInventoryEdit();
+	public PurchaseOrderBanner() {
+		super();
+		updateToPurchaseOrders();
 	}
 
-	private void initInventoryEdit() {	
+	private void updateToPurchaseOrders() {
+		/* Banner Title */
+		bannerTitle.setText(Values.BANNER_PURCHASE_ORDER);
+		initPurchaseOrders();
+	}
+
+	private void initPurchaseOrders() {
 		/*Contains the label and textfield combinations for left box*/
 		VBox[] leftCombos = new VBox[2];
 		
 		/*item Code Combination*/
 		leftCombos[0] = new VBox();
-		itemCodeField = new TextField();
-		leftCombos[0].getChildren().addAll(new Label("Item Code:"), itemCodeField);
+		supplierNameField = new TextField();
+		leftCombos[0].getChildren().addAll(new Label("Supplier Name::"), supplierNameField);
 		
 		/*item descritption Combination*/
 		leftCombos[1] = new VBox();
-		ItemDescriptionField = new TextField();
-		leftCombos[1].getChildren().addAll(new Label("Item Description:"), ItemDescriptionField);
+		supplierAddressField = new TextField();
+		leftCombos[1].getChildren().addAll(new Label("Supplier Address:"), supplierAddressField);
 		
 		/*Contains the label and textfield combinations for middle box*/
 		VBox[] middleCombos = new VBox[2];
 		
 		/*Supplier Combination*/
 		middleCombos[0] = new VBox();
-		supplierField = new TextField();
-		middleCombos[0].getChildren().addAll(new Label("Supplier:"), supplierField);
+		invoiceField = new TextField();
+		middleCombos[0].getChildren().addAll(new Label("Invoice No:"), invoiceField);
 		
 		/*Unit price Combination*/
 		middleCombos[1] = new VBox();
-		unitPriceField = new TextField();
-		middleCombos[1].getChildren().addAll(new Label("Unit Price:"), unitPriceField);
+		documentTitleField = new TextField();
+		middleCombos[1].getChildren().addAll(new Label("Document Title:"), documentTitleField);
 		
 		/*Contains the label and textfield combinations for right box*/
 		VBox rightCombos = new VBox();
@@ -67,17 +64,19 @@ public class InventoryBanner extends Banner{
 		/*Requisitioner Combination*/
 		rightCombos = new VBox();
 		requisitionerField = new TextField();
-		rightCombos.getChildren().addAll(new Label("Requisitioner:"), requisitionerField);
+		rightCombos.getChildren().addAll(new Label("Requisitioner: "), requisitionerField);
 		
 		/*Edit Button initialization*/
-		editConfirm = new Button("Confirm Edit");
+		supplierConfirm = new Button("Suppliers");
 		
 		rightSection.setSpacing(30);;
 		
 		/* Assembly */
 		leftSection.getChildren().addAll(leftCombos[0], leftCombos[1]);
 		middleSection.getChildren().addAll(middleCombos[0], middleCombos[1]);
-		rightSection.getChildren().addAll(rightCombos, editConfirm);
+		rightSection.getChildren().addAll(rightCombos, supplierConfirm);
 	
+		
 	}
+
 }

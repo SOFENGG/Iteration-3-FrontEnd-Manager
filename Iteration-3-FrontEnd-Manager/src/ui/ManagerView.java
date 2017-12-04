@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import ui_factories.BannerFactory;
 
 public class ManagerView extends BorderPane {
 		
@@ -42,42 +43,46 @@ public class ManagerView extends BorderPane {
 	private void initNavMenuHandlers() {
 		/* Transaction Button */
 		transactionBtn.setOnAction(e -> {
-			
+			reinitBanner(00);
 		});
 		
 		/* Purchase Orders Button */
 		purchaseOrdBtn.setOnAction(e -> {
-			
+			paneView.updatePaneViewToPurchaseOrder();
+			reinitBanner(05);
 		});
 		
 		/* Sales Reports Button */
 		salesReportBtn.setOnAction(e -> {
-			
+			paneView.updatePaneViewToSalesReport();
+			reinitBanner(00);
 		});
 		
 		/* Inventory Button */
 		inventoryBtn.setOnAction(e -> {
 			paneView.updatePaneViewToInvetory();
-			topBox.getChildren().remove(banner);
-			banner = new InventoryBanner();
-			HBox.setHgrow(banner, Priority.ALWAYS); 
-			topBox.getChildren().add(banner);
+			reinitBanner(03);
 			
 		});
 		
 		/* Customers / Debts Buttons */
 		custDebtsBtn.setOnAction(e -> {
-			
+			paneView.updatePaneViewToCustomerDebt();
+			reinitBanner(01);
 		});
 		
 		/* Suppliers Button */
 		suppliersBtn.setOnAction(e -> {
 			paneView.updatePaneViewToSupplier();
-			topBox.getChildren().remove(banner);
-			banner = new SupplierBanner();
-			HBox.setHgrow(banner, Priority.ALWAYS); 
-			topBox.getChildren().add(banner);
+			reinitBanner(04);
 		});
+	}
+	
+	private void reinitBanner(int bannerKey) {
+		topBox.getChildren().remove(banner);
+		banner = BannerFactory.getBanner(bannerKey);
+		topBox.getChildren().add(banner);
+		HBox.setHgrow(banner, Priority.ALWAYS);
 	}
 	
 	private void initTop() {
@@ -90,7 +95,7 @@ public class ManagerView extends BorderPane {
 		logo = new Rectangle(Values.LOGO_WIDTH, Values.LOGO_HEIGHT);
 		
 		/* Banner Initialization */
-		banner = new Banner();
+		banner = new DateBanner();
 		
 		/* Assembly of Logo and Banner in Top Box */
 		topBox.getChildren().addAll(logo, banner);

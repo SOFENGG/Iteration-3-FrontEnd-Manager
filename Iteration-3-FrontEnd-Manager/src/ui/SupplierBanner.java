@@ -10,91 +10,74 @@ import javafx.scene.layout.VBox;
 
 public class SupplierBanner extends Banner{
 	
-	private VBox supplierBanner;
-		private Label supBannerName = new Label("Add Supplier: ");
-		private VBox supplierAdd;
-			private HBox UpperAddBox;
-				private TextField supplierCodeField;
-				private TextField supplierNameField;
-				private TextField contactPersonField;
-			private HBox LowerAddBox;
-				private TextField contactNumberField;
-				private TextField taxIdField;
-				private Button addConfirm;
+	/* Outer Left Section */
+	private TextField supplierCodeField;
+	private TextField supplierNameField;
+	private TextField contactPersonField;
+	
+	/* Inner Left Section */
+	private TextField contactNumberField;
+	private TextField taxIdField;
+	
+	/* Inner Right Section */
+	private Button addConfirm;
 				
 	public SupplierBanner(){
-		initSupplierBanner();
-		getChildren().add(supplierBanner);
+		super();
+		updateToSupplierBanner();
 	}
 
-	private void initSupplierBanner() {
-		/* Inventory Banner Initialization */
-		supplierBanner = new VBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		supplierBanner.setPrefHeight(Values.INVENTORY_OPTIONS_PREF_HEIGHT);
-		supplierBanner.setPadding(new Insets(10, 0, 0, 0));
-		
+	private void updateToSupplierBanner() {
+		/* Banner Title */
+		bannerTitle.setText(Values.BANNER_SUPPLIER);
 		initSupplierAdd();
-		
-		/* Assembly of previously specified components*/
-		supplierBanner.getChildren().addAll(supBannerName, supplierAdd);
 	}
 
 	private void initSupplierAdd() {
-		/* Supplier Add Initialization */
-		supplierAdd = new VBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		supplierAdd.setPrefHeight(Values.INVENTORY_OPTIONS_PREF_HEIGHT);
-		supplierAdd.setPadding(new Insets(10, 10, 10, 10));
-		
-		/*Upper part of the Supplier Add*/
-		UpperAddBox = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		
-		/*Contains the label and textfield combinations for upper box*/
-		VBox[] UADCombos = new VBox[3];
+		/*Contains the label and textfield combinations for left box*/
+		VBox[] leftCombos = new VBox[2];
 		
 		/*item Code Combination*/
-		UADCombos[0] = new VBox();
+		leftCombos[0] = new VBox();
 		supplierCodeField = new TextField();
-		UADCombos[0].getChildren().addAll(new Label("Supplier Code:"), supplierCodeField);
-		
-		/*Supplier Combination*/
-		UADCombos[1] = new VBox();
-		supplierNameField = new TextField();
-		UADCombos[1].getChildren().addAll(new Label("Name:"), supplierNameField);
-	
-		/*Requisitioner Combination*/
-		UADCombos[2] = new VBox();
-		contactPersonField = new TextField();
-		UADCombos[2].getChildren().addAll(new Label("Contact Person:"), contactPersonField);
-		
-		/* Assembly of UpperBox*/
-		UpperAddBox.getChildren().addAll(UADCombos[0], UADCombos[1], UADCombos[2]);
-		
-		/*Upper part of the Item Editer*/
-		LowerAddBox = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		
-		/*Contains the label and textfield combinations for lower combination*/
-		VBox[] LADCombos = new VBox[2];
+		leftCombos[0].getChildren().addAll(new Label("Supplier Code:"), supplierCodeField);
 		
 		/*item descritption Combination*/
-		LADCombos[0] = new VBox();
+		leftCombos[1] = new VBox();
 		contactNumberField = new TextField();
-		LADCombos[0].getChildren().addAll(new Label("Contact Number:"), contactNumberField);
+		leftCombos[1].getChildren().addAll(new Label("Contact Number:"), contactNumberField);
+		
+		/*Contains the label and textfield combinations for middle box*/
+		VBox[] middleCombos = new VBox[2];
+		
+		/*Supplier Combination*/
+		middleCombos[0] = new VBox();
+		supplierNameField = new TextField();
+		middleCombos[0].getChildren().addAll(new Label("Name:"), supplierNameField);
 		
 		/*Unit price Combination*/
-		LADCombos[1] = new VBox();
+		middleCombos[1] = new VBox();
 		taxIdField = new TextField();
-		LADCombos[1].getChildren().addAll(new Label("tax ID:"), taxIdField);
+		middleCombos[1].getChildren().addAll(new Label("tax ID:"), taxIdField);
+		
+		/*Contains the label and textfield combinations for right box*/
+		VBox rightCombos = new VBox();
+
+		/*Requisitioner Combination*/
+		rightCombos = new VBox();
+		contactPersonField = new TextField();
+		rightCombos.getChildren().addAll(new Label("Contact Person:"), contactPersonField);
 		
 		/*Edit Button initialization*/
 		addConfirm = new Button("Confirm Edit");
 		
-		/* Assembly of LowerBox*/
-		LowerAddBox.getChildren().addAll(LADCombos[0], LADCombos[1], addConfirm);
+		rightSection.setSpacing(30);
 		
 		
-		/* Assembly of previously specified components*/
-		supplierAdd.getChildren().addAll(UpperAddBox, LowerAddBox);
+		/* Assembly */
+		leftSection.getChildren().addAll(leftCombos[0], leftCombos[1]);
+		middleSection.getChildren().addAll(middleCombos[0], middleCombos[1]);
+		rightSection.getChildren().addAll(rightCombos, addConfirm);
 	
-		
 	}
 }
