@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.ArrayList;
+
 import final_values.Values;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +14,8 @@ import javafx.scene.layout.HBox;
 
 public class View extends BorderPane{
 	
+	private ArrayList<Button> actionButtonsMap;
+	
 		private HBox filterOptions;
 			private ComboBox<String> searchColumns;
 			private TextField searchField;
@@ -22,11 +26,11 @@ public class View extends BorderPane{
 			
 	public View() {
 		setId("View");
-		//setStyle("-fx-border-color: #000000;"); 
 	}
 	
 	public void updatePaneView() {
 		initFilterOptions();
+		addFilterButton();
 		initTableView();
 		initActionButtons();
 		
@@ -35,8 +39,18 @@ public class View extends BorderPane{
 	}
 	
 	private void initActionButtons() {
-			
+		actionButtons = new HBox(10);
+		
+		//Button button  = new Button();
+		//button.setId();
+		//button.getId();
+		
 	}
+	
+	//public Button getNodeByID(int buttonCode) {
+		
+		//for (int i = 0; i < )
+	//}
 	
 	private void initTableView() {
 		 tableView = new Table();
@@ -65,7 +79,15 @@ public class View extends BorderPane{
 		filterButton = new Button("O " + "Filter"); // the O character to be replaced with the filter icon
 		
 		/* Assembly of Search Columns, Search Field, Search Button and Filter Button into Filter Options */
-		filterOptions.getChildren().addAll(searchColumns, searchField, searchButton, filterButton);
+		filterOptions.getChildren().addAll(searchColumns, searchField, searchButton);
+	}
+	
+	private void addFilterButton() {
+		filterOptions.getChildren().add(filterButton);
+	}
+	
+	private void removeFilterButton() {
+		filterOptions.getChildren().remove(filterButton);
 	}
 	
 	/* This function is for the Back End Developers */

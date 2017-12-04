@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import ui_factories.BannerFactory;
 
 public class ManagerView extends BorderPane {
 		
@@ -42,7 +43,7 @@ public class ManagerView extends BorderPane {
 	private void initNavMenuHandlers() {
 		/* Transaction Button */
 		transactionBtn.setOnAction(e -> {
-			
+			reinitBanner(00);
 		});
 		
 		/* Purchase Orders Button */
@@ -52,7 +53,7 @@ public class ManagerView extends BorderPane {
 		
 		/* Sales Reports Button */
 		salesReportBtn.setOnAction(e -> {
-			
+			reinitBanner(00);
 		});
 		
 		/* Inventory Button */
@@ -62,13 +63,20 @@ public class ManagerView extends BorderPane {
 		
 		/* Customers / Debts Buttons */
 		custDebtsBtn.setOnAction(e -> {
-			
+			reinitBanner(01);
 		});
 		
 		/* Suppliers Button */
 		suppliersBtn.setOnAction(e -> {
 			
 		});
+	}
+	
+	private void reinitBanner(int bannerKey) {
+		topBox.getChildren().remove(banner);
+		banner = BannerFactory.getBanner(bannerKey);
+		topBox.getChildren().add(banner);
+		HBox.setHgrow(banner, Priority.ALWAYS);
 	}
 	
 	private void initTop() {
@@ -81,7 +89,7 @@ public class ManagerView extends BorderPane {
 		logo = new Rectangle(Values.LOGO_WIDTH, Values.LOGO_HEIGHT);
 		
 		/* Banner Initialization */
-		banner = new Banner();
+		banner = new DateBanner();
 		
 		/* Assembly of Logo and Banner in Top Box */
 		topBox.getChildren().addAll(logo, banner);
