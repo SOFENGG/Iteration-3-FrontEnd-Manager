@@ -20,7 +20,7 @@ public class DateBanner extends Banner {
 		todaysDateLbl = new Label();
 		todaysDateLbl.setText(setTodaysDateLbl());
 		
-		outerLeftSection.getChildren().addAll(todaysDateLbl);
+		leftSection.getChildren().addAll(todaysDateLbl);
 			
 	}
 	

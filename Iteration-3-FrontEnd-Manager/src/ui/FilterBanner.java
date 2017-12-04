@@ -37,11 +37,11 @@ public class FilterBanner extends Banner {
 		
 		initFilterLabels();
 		
-		outerLeftSection.getChildren().addAll(dateYearTitleLbl, dateYearFilterLbl);
+		leftSection.getChildren().addAll(dateYearTitleLbl, dateYearFilterLbl);
 		
-		innerLeftSection.getChildren().addAll(weekTitleLbl, weekFilterLbl);
+		middleSection.getChildren().addAll(weekTitleLbl, weekFilterLbl);
 		
-		innerRightSection.getChildren().addAll(orderTitleLbl, orderFilterLbl);
+		rightSection.getChildren().addAll(orderTitleLbl, orderFilterLbl);
 		
 	}
 	

@@ -50,22 +50,22 @@ public class CustomerBanner extends Banner {
 			
 			custAddressField = new TextField();
 			
-			outerLeftSection.getChildren().addAll(custNameLbl, custNameField, custAddressLbl, custAddressField);
+			leftSection.getChildren().addAll(custNameLbl, custNameField, custAddressLbl, custAddressField);
 		
 		/* Inner Left Section */
 			debtLimitLbl = new Label("Debt Limit:");
 			
 			debtLimitField = new TextField();
 			
-			innerLeftSection.getChildren().addAll(debtLimitLbl, debtLimitField);
+			middleSection.getChildren().addAll(debtLimitLbl, debtLimitField);
 		
 		/* Inner Right Section */
 		
-		innerRightSection.setPadding(new Insets(Values.INNER_RIGHT_TOP_PADDING, Values.INNER_RIGHT_RIGHT_PADDING, Values.INNER_RIGHT_BOTTOM_PADDING, Values.INNER_RIGHT_LEFT_PADDING));
+		rightSection.setPadding(new Insets(Values.INNER_RIGHT_TOP_PADDING, Values.INNER_RIGHT_RIGHT_PADDING, Values.INNER_RIGHT_BOTTOM_PADDING, Values.INNER_RIGHT_LEFT_PADDING));
 		
 			addCustomerBtn = new Button("Add Customer");
 			
-			innerRightSection.getChildren().addAll(addCustomerBtn);
+			rightSection.getChildren().addAll(addCustomerBtn);
 		
 		
 	}

@@ -173,10 +173,6 @@ public class View extends BorderPane{
 		filterOptions.getChildren().remove(filterButton);
 	}
 	
-	private void initActionButtons() {
-		
-	}
-	
 	/* This function is for the Back End Developers */
 	private ObservableList<String> fillComboBox() {
 		ObservableList<String> list = FXCollections.observableArrayList();

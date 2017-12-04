@@ -12,10 +12,9 @@ public class Banner extends Pane {
 	protected VBox bannerDetails;
 		protected Label bannerTitle;
 		protected HBox bannerContents;
-			protected VBox outerLeftSection;
-			protected VBox innerLeftSection;		
-			protected VBox innerRightSection;
-			protected VBox outerRightSection;
+			protected VBox leftSection;
+			protected VBox middleSection;		
+			protected VBox rightSection;
 				
 	public Banner() {
 		setId("Banner");
@@ -24,23 +23,26 @@ public class Banner extends Pane {
 	}
 	
 	private void initBanner() {
+		/* Banner Details Initialization */
 		bannerDetails = new VBox(Values.BANNER_DETAILS_ITEM_SPACING);
 		
+		/* Banner Title Initialization (No Set Text) */
 		bannerTitle = new Label();
 		bannerTitle.setPadding(new Insets(Values.BANNER_TITLE_TOP_PADDING, Values.BANNER_TITLE_RIGHT_PADDING, Values.BANNER_TITLE_BOTTOM_PADDING, Values.BANNER_TITLE_LEFT_PADDING));
 		
+		/* Banner Contents Initialization */
 		bannerContents = new HBox(Values.BANNER_CONTENTS_ITEM_SPACING);
 		bannerContents.setPadding(new Insets(Values.BANNER_CONTENTS_TOP_PADDING, Values.BANNER_CONTENTS_RIGHT_PADDING, Values.BANNER_CONTENTS_BOTTOM_PADDING, Values.BANNER_CONTENTS_LEFT_PADDING));
 		
-			outerLeftSection = new VBox(Values.OUTER_LEFT_ITEM_SPACING);
+		/* Banner Contents Sections Initialization */
+			leftSection = new VBox(Values.LEFT_SPACING);
 			
-			innerLeftSection = new VBox(Values.INNER_LEFT_ITEM_SPACING);
+			middleSection = new VBox(Values.MIDDLE_SPACING);
 			
-			innerRightSection = new VBox(Values.INNER_RIGHT_ITEM_SPACING);
-			
-			outerRightSection = new VBox(Values.OUTER_RIGHT_ITEM_SPACING);	
-			
-		bannerContents.getChildren().addAll(outerLeftSection, innerLeftSection, innerRightSection, outerRightSection);
+			rightSection = new VBox(Values.RIGHT_ITEM_SPACING);
+		
+		/* Assembly */
+		bannerContents.getChildren().addAll(leftSection, middleSection, rightSection);
 		
 		bannerDetails.getChildren().addAll(bannerTitle, bannerContents);
 		

@@ -12,6 +12,8 @@ public class Values {
 	
 	public final static String BANNER_FILTER = "Active Filters:";
 	
+	public final static String BANNER_INVENTORY = "Item Details:";
+	
 	/* Banner Filter Titles */
 	public final static String DATE_YEAR = "Date & Year:";
 	
@@ -66,18 +68,16 @@ public class Values {
 	public final static double BANNER_TITLE_RIGHT_PADDING = 0;
 	public final static double BANNER_TITLE_BOTTOM_PADDING = 0;
 	
-	public final static double OUTER_LEFT_ITEM_SPACING = 10;
+	public final static double LEFT_SPACING = 10;
 	
-	public final static double INNER_LEFT_ITEM_SPACING = 10;
+	public final static double MIDDLE_SPACING = 10;
 	
-	public final static double INNER_RIGHT_ITEM_SPACING = 10;
+	public final static double RIGHT_ITEM_SPACING = 10;
 	
-	public final static double INNER_RIGHT_TOP_PADDING = 100;
-	public final static double INNER_RIGHT_LEFT_PADDING = 10;
-	public final static double INNER_RIGHT_RIGHT_PADDING = 0;
-	public final static double INNER_RIGHT_BOTTOM_PADDING = 0;
-	
-	public final static double OUTER_RIGHT_ITEM_SPACING = 10;
+	public final static double RIGHT_TOP_PADDING = 100;
+	public final static double RIGHT_LEFT_PADDING = 10;
+	public final static double RIGHT_RIGHT_PADDING = 0;
+	public final static double RIGHT_BOTTOM_PADDING = 0;
 	
 	public final static double INVENTORY_OPTIONS_ITEM_SPACING = 10;
 }

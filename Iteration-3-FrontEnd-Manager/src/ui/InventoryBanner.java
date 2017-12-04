@@ -10,44 +10,33 @@ import javafx.scene.layout.VBox;
 
 public class InventoryBanner extends Banner{
 	
-	private VBox inventoryBanner;
-		private Label InvBannerName = new Label("Item Details: ");
-		private VBox inventoryEdit;
-			private HBox UpperEditBox;
-				private TextField itemCodeField;
-				private TextField supplierField;
-				private TextField requisitionerField;
-			private HBox LowerEditBox;	
-				private TextField ItemDescriptionField;
-				private TextField unitPriceField;
-				private Button editConfirm;
-	
+		private TextField itemCodeField;
+		private TextField ItemDescriptionField;
+		
+		private TextField supplierField;
+		private TextField unitPriceField;
+		
+		private TextField requisitionerField;	
+		private Button editConfirm;
+		
+		
 	public InventoryBanner() {
+		super();
 		initInventoryBanner();
-		getChildren().add(inventoryBanner);
 	}
 	
 	private void initInventoryBanner() {
-		/* Inventory Banner Initialization */
-		inventoryBanner = new VBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		inventoryBanner.setPrefHeight(Values.INVENTORY_OPTIONS_PREF_HEIGHT);
-		inventoryBanner.setPadding(new Insets(10, 0, 0, 0));
+		
+		/* Banner Title */
+		bannerTitle.setText(Values.BANNER_INVENTORY);
 		
 		initInventoryEdit();
 		
 		/* Assembly of previously specified components*/
-		inventoryBanner.getChildren().addAll(InvBannerName, inventoryEdit);
+		//inventoryBanner.getChildren().addAll(InvBannerName, inventoryEdit);
 	}
 
-	private void initInventoryEdit() {
-		/* Inventory Edit Initialization */
-		inventoryEdit = new VBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		inventoryEdit.setPrefHeight(Values.INVENTORY_OPTIONS_PREF_HEIGHT);
-		inventoryEdit.setPadding(new Insets(10, 10, 10, 10));
-		
-		/*Upper part of the Item Editer*/
-		UpperEditBox = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		
+	private void initInventoryEdit() {		
 		/*Contains the label and textfield combinations for upper box*/
 		VBox[] UEBCombos = new VBox[3];
 		
@@ -67,10 +56,10 @@ public class InventoryBanner extends Banner{
 		UEBCombos[2].getChildren().addAll(new Label("Requisitioner:"), requisitionerField);
 		
 		/* Assembly of UpperBox*/
-		UpperEditBox.getChildren().addAll(UEBCombos[0], UEBCombos[1], UEBCombos[2]);
+		//UpperEditBox.getChildren().addAll(UEBCombos[0], UEBCombos[1], UEBCombos[2]);
 		
 		/*Upper part of the Item Editer*/
-		LowerEditBox = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
+		//LowerEditBox = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
 		
 		/*Contains the label and textfield combinations for lower combination*/
 		VBox[] LEBCombos = new VBox[2];
@@ -89,10 +78,18 @@ public class InventoryBanner extends Banner{
 		editConfirm = new Button("Confirm Edit");
 		
 		/* Assembly of LowerBox*/
-		LowerEditBox.getChildren().addAll(LEBCombos[0], LEBCombos[1], editConfirm);
+		//LowerEditBox.getChildren().addAll(LEBCombos[0], LEBCombos[1], editConfirm);
 		
 		
 		/* Assembly of previously specified components*/
-		inventoryEdit.getChildren().addAll(UpperEditBox, LowerEditBox);
+		//inventoryEdit.getChildren().addAll(UpperEditBox, LowerEditBox);
+		
+		rightSection.setSpacing(30);;
+		
+		/* Assembly */
+		leftSection.getChildren().addAll(UEBCombos[0], LEBCombos[0]);
+		middleSection.getChildren().addAll(UEBCombos[1], LEBCombos[1]);
+		rightSection.getChildren().addAll(UEBCombos[2], editConfirm);
+	
 	}
 }
