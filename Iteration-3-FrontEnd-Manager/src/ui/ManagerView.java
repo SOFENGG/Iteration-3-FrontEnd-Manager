@@ -61,8 +61,7 @@ public class ManagerView extends BorderPane {
 		/* Inventory Button */
 		inventoryBtn.setOnAction(e -> {
 			paneView.updatePaneViewToInvetory();
-			reinitBanner(03);
-			
+			reinitBanner(03);	
 		});
 		
 		/* Customers / Debts Buttons */

@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class InventoryBanner extends Banner{
 	
+
 	/* Outer Left Section */
 	private TextField itemCodeField;
 	private TextField ItemDescriptionField;
@@ -21,6 +22,7 @@ public class InventoryBanner extends Banner{
 	/* Inner Right Section */
 	private TextField requisitionerField;	
 	private Button editConfirm;
+
 		
 		
 	public InventoryBanner() {
@@ -41,7 +43,9 @@ public class InventoryBanner extends Banner{
 		/*item Code Combination*/
 		leftCombos[0] = new VBox();
 		itemCodeField = new TextField();
+		
 		leftCombos[0].getChildren().addAll(new Label("Item Code:"), itemCodeField);
+
 		
 		/*item descritption Combination*/
 		leftCombos[1] = new VBox();

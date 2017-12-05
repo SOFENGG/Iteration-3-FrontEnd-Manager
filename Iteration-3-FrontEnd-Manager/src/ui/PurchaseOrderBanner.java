@@ -76,7 +76,6 @@ public class PurchaseOrderBanner extends Banner {
 		middleSection.getChildren().addAll(middleCombos[0], middleCombos[1]);
 		rightSection.getChildren().addAll(rightCombos, supplierConfirm);
 	
-		
 	}
 
 }

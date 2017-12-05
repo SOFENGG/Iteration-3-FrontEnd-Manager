@@ -13,7 +13,7 @@ public class Values {
 	public final static String BANNER_FILTER = "Active Filters:";
 	
 	public final static String BANNER_INVENTORY = "Item Details:";
-	
+
 	public final static String BANNER_PURCHASE_ORDER = "Purchase Order Details:";
 	
 	public final static String BANNER_SUPPLIER = "Add Supplier:";

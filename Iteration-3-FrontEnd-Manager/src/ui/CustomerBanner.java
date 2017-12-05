@@ -62,6 +62,7 @@ public class CustomerBanner extends Banner {
 		/* Inner Right Section */
 		
 		rightSection.setPadding(new Insets(Values.RIGHT_TOP_PADDING, Values.RIGHT_RIGHT_PADDING, Values.RIGHT_BOTTOM_PADDING, Values.RIGHT_LEFT_PADDING));
+
 		
 			addCustomerBtn = new Button("Add Customer");
 			

@@ -238,6 +238,12 @@ public class View extends BorderPane{
 		
 	}
 	
+
+	private void initActionButtons() {
+		actionButtons = new HBox(10);
+		
+	}
+
 	public void updatePaneViewToInvetory(){
 		initInventoryOptions();
 		initInventoryTable();
