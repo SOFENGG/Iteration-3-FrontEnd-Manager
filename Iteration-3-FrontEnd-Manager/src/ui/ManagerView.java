@@ -48,23 +48,25 @@ public class ManagerView extends BorderPane {
 		
 		/* Purchase Orders Button */
 		purchaseOrdBtn.setOnAction(e -> {
-			
+			paneView.updatePaneViewToPurchaseOrder();
+			reinitBanner(05);
 		});
 		
 		/* Sales Reports Button */
 		salesReportBtn.setOnAction(e -> {
+			paneView.updatePaneViewToSalesReport();
 			reinitBanner(00);
 		});
 		
 		/* Inventory Button */
 		inventoryBtn.setOnAction(e -> {
 			paneView.updatePaneViewToInvetory();
-			reinitBanner(03);
-			
+			reinitBanner(03);	
 		});
 		
 		/* Customers / Debts Buttons */
 		custDebtsBtn.setOnAction(e -> {
+			paneView.updatePaneViewToCustomerDebt();
 			reinitBanner(01);
 		});
 		

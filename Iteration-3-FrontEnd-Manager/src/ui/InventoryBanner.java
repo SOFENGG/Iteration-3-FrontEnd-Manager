@@ -10,86 +10,78 @@ import javafx.scene.layout.VBox;
 
 public class InventoryBanner extends Banner{
 	
-		private TextField itemCodeField;
-		private TextField ItemDescriptionField;
-		
-		private TextField supplierField;
-		private TextField unitPriceField;
-		
-		private TextField requisitionerField;	
-		private Button editConfirm;
+
+	/* Outer Left Section */
+	private TextField itemCodeField;
+	private TextField ItemDescriptionField;
+	
+	/* Inner Left Section */
+	private TextField supplierField;
+	private TextField unitPriceField;
+	
+	/* Inner Right Section */
+	private TextField requisitionerField;	
+	private Button editConfirm;
+
 		
 		
 	public InventoryBanner() {
 		super();
-		initInventoryBanner();
+		updateToInventoryBanner();
 	}
 	
-	private void initInventoryBanner() {
-		
+	private void updateToInventoryBanner() {
 		/* Banner Title */
 		bannerTitle.setText(Values.BANNER_INVENTORY);
-		
 		initInventoryEdit();
-		
-		/* Assembly of previously specified components*/
-		//inventoryBanner.getChildren().addAll(InvBannerName, inventoryEdit);
 	}
 
-	private void initInventoryEdit() {		
-		/*Contains the label and textfield combinations for upper box*/
-		VBox[] UEBCombos = new VBox[3];
+	private void initInventoryEdit() {	
+		/*Contains the label and textfield combinations for left box*/
+		VBox[] leftCombos = new VBox[2];
 		
 		/*item Code Combination*/
-		UEBCombos[0] = new VBox();
+		leftCombos[0] = new VBox();
 		itemCodeField = new TextField();
-		UEBCombos[0].getChildren().addAll(new Label("Item Code:"), itemCodeField);
 		
-		/*Supplier Combination*/
-		UEBCombos[1] = new VBox();
-		supplierField = new TextField();
-		UEBCombos[1].getChildren().addAll(new Label("Supplier:"), supplierField);
-		
-		/*Requisitioner Combination*/
-		UEBCombos[2] = new VBox();
-		requisitionerField = new TextField();
-		UEBCombos[2].getChildren().addAll(new Label("Requisitioner:"), requisitionerField);
-		
-		/* Assembly of UpperBox*/
-		//UpperEditBox.getChildren().addAll(UEBCombos[0], UEBCombos[1], UEBCombos[2]);
-		
-		/*Upper part of the Item Editer*/
-		//LowerEditBox = new HBox(Values.INVENTORY_OPTIONS_ITEM_SPACING);
-		
-		/*Contains the label and textfield combinations for lower combination*/
-		VBox[] LEBCombos = new VBox[2];
+		leftCombos[0].getChildren().addAll(new Label("Item Code:"), itemCodeField);
+
 		
 		/*item descritption Combination*/
-		LEBCombos[0] = new VBox();
+		leftCombos[1] = new VBox();
 		ItemDescriptionField = new TextField();
-		LEBCombos[0].getChildren().addAll(new Label("Item Description:"), ItemDescriptionField);
+		leftCombos[1].getChildren().addAll(new Label("Item Description:"), ItemDescriptionField);
+		
+		/*Contains the label and textfield combinations for middle box*/
+		VBox[] middleCombos = new VBox[2];
+		
+		/*Supplier Combination*/
+		middleCombos[0] = new VBox();
+		supplierField = new TextField();
+		middleCombos[0].getChildren().addAll(new Label("Supplier:"), supplierField);
 		
 		/*Unit price Combination*/
-		LEBCombos[1] = new VBox();
+		middleCombos[1] = new VBox();
 		unitPriceField = new TextField();
-		LEBCombos[1].getChildren().addAll(new Label("Unit Price:"), unitPriceField);
+		middleCombos[1].getChildren().addAll(new Label("Unit Price:"), unitPriceField);
+		
+		/*Contains the label and textfield combinations for right box*/
+		VBox rightCombos = new VBox();
+		
+		/*Requisitioner Combination*/
+		rightCombos = new VBox();
+		requisitionerField = new TextField();
+		rightCombos.getChildren().addAll(new Label("Requisitioner:"), requisitionerField);
 		
 		/*Edit Button initialization*/
 		editConfirm = new Button("Confirm Edit");
 		
-		/* Assembly of LowerBox*/
-		//LowerEditBox.getChildren().addAll(LEBCombos[0], LEBCombos[1], editConfirm);
-		
-		
-		/* Assembly of previously specified components*/
-		//inventoryEdit.getChildren().addAll(UpperEditBox, LowerEditBox);
-		
 		rightSection.setSpacing(30);;
 		
 		/* Assembly */
-		leftSection.getChildren().addAll(UEBCombos[0], LEBCombos[0]);
-		middleSection.getChildren().addAll(UEBCombos[1], LEBCombos[1]);
-		rightSection.getChildren().addAll(UEBCombos[2], editConfirm);
+		leftSection.getChildren().addAll(leftCombos[0], leftCombos[1]);
+		middleSection.getChildren().addAll(middleCombos[0], middleCombos[1]);
+		rightSection.getChildren().addAll(rightCombos, editConfirm);
 	
 	}
 }
