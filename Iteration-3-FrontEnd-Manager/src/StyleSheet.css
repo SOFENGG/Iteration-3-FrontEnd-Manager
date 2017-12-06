@@ -1,8 +1,15 @@
 #Banner {
-	-fx-border-radius: 10;
 	-fx-border-color: #000000;
 }
 
 #View {
+	-fx-border-color: #000000;
+}
+
+#NavMenu {
+	-fx-border-color: #000000;
+}
+
+#HeaderPane {
 	-fx-border-color: #000000;
 }

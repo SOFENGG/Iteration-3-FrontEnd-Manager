@@ -36,6 +36,9 @@ public class Values {
 	public final static double INVENTORY_OPTIONS_PREF_HEIGHT = 50;
 	
 	public final static double SEARCH_FIELD_WIDTH = 100;
+	
+	public final static double HEADER_PANE_CONTENTS_WIDTH = 75;
+	public final static double HEADER_PANE_CONTENTS_HEIGHT = 75;
 
 	/* Insets for Padding and Spacing*/
 	public final static double TOP_BOX_ITEM_SPACING = 10;
@@ -54,6 +57,11 @@ public class Values {
 	
 	public final static double NAV_MENU_ITEM_SPACING = 20;
 	
+	public final static double NAV_MENU_TOP_PADDING = 50;
+	public final static double NAV_MENU_LEFT_PADDING = 25;
+	public final static double NAV_MENU_RIGHT_PADDING = 0;
+	public final static double NAV_MENU_BOTTOM_PADDING = 0;
+	
 	public final static double FILTER_OPTIONS_ITEM_SPACING = 10;
 	
 
@@ -64,7 +72,7 @@ public class Values {
 
 	public final static double BANNER_CONTENTS_TOP_PADDING = 0;
 	public final static double BANNER_CONTENTS_LEFT_PADDING = 10;
-	public final static double BANNER_CONTENTS_RIGHT_PADDING = 0;
+	public final static double BANNER_CONTENTS_RIGHT_PADDING = 10;
 	public final static double BANNER_CONTENTS_BOTTOM_PADDING = 0;
 	
 	public final static double BANNER_TITLE_TOP_PADDING = 0;

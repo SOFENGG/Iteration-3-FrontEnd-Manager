@@ -5,9 +5,10 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-public class Banner extends Pane {
+public class Banner extends BorderPane {
 	
 	protected VBox bannerDetails;
 		protected Label bannerTitle;
@@ -15,6 +16,8 @@ public class Banner extends Pane {
 			protected VBox leftSection;
 			protected VBox middleSection;		
 			protected VBox rightSection;
+			protected VBox leftColumn;
+			protected VBox rightColumn;
 				
 	public Banner() {
 		setId("Banner");
@@ -40,13 +43,17 @@ public class Banner extends Pane {
 			middleSection = new VBox(Values.MIDDLE_SPACING);
 			
 			rightSection = new VBox(Values.RIGHT_ITEM_SPACING);
+			
+			leftColumn = new VBox(Values.LEFT_SPACING);
+			
+			rightColumn = new VBox(Values.RIGHT_ITEM_SPACING);
 		
 		/* Assembly */
-		bannerContents.getChildren().addAll(leftSection, middleSection, rightSection);
+		bannerContents.getChildren().addAll(leftColumn, rightColumn);
 		
 		bannerDetails.getChildren().addAll(bannerTitle, bannerContents);
 		
-		getChildren().add(bannerDetails);
+		setTop(bannerDetails);
 	}
 	
 	

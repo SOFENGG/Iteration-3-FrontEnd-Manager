@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -49,7 +50,7 @@ public class View extends BorderPane{
 			private Button addItemButton;
 			private Button removeItemButton;
 			private Button clearAllButton;
-			private Button confirmOrder;
+			private Button confirmOrder; 
 			
 		/*Sales Report*/
 		private HBox salesOrderOptions;
@@ -239,11 +240,6 @@ public class View extends BorderPane{
 	}
 	
 
-	private void initActionButtons() {
-		actionButtons = new HBox(10);
-		
-	}
-
 	public void updatePaneViewToInvetory(){
 		initInventoryOptions();
 		initInventoryTable();
@@ -402,5 +398,12 @@ public class View extends BorderPane{
 			list.addAll("Report Num", "Date Created");
 		
 		return list;
+	}
+	
+	
+	/* This function is for the Back End Developers */
+	private TableColumn<Object, ?> fillColumns() {
+		
+		return null;
 	}
 }

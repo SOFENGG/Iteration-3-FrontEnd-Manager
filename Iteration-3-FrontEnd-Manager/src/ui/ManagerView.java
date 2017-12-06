@@ -15,26 +15,25 @@ import ui_factories.BannerFactory;
 public class ManagerView extends BorderPane {
 		
 	/* Node Variables */
-		private HBox topBox;
-			private Rectangle logo;
-			private Banner banner;
+		private HeaderPane headerPane;
+		private NavMenuPane navMenu;
 		private HBox midBox;
-			private VBox navMenu;
-				private Button transactionBtn = new Button("Transactions");
-				private Button purchaseOrdBtn = new Button("Purchase Orders");
-				private Button salesReportBtn = new Button("Sales Reports");
-				private Button inventoryBtn = new Button("Inventory");
-				private Button custDebtsBtn = new Button("Customers / Debts");
-				private Button suppliersBtn = new Button("Suppliers");
 			private View paneView;
+			private Banner banner;
+		
+		
+	/* boolean */
+		private boolean navMenuShown = false;
 
 	public ManagerView() {
 		initPane();
 		initNavMenuHandlers();
+		initHeaderPaneHandlers();
 	}
 	
 	private void initPane() {
 		setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		 navMenu = new NavMenuPane();
 		initTop();
 		initMid();
 	}
@@ -42,96 +41,86 @@ public class ManagerView extends BorderPane {
 	/* Initializes the Functionality of the Button on the Nav Menu */
 	private void initNavMenuHandlers() {
 		/* Transaction Button */
-		transactionBtn.setOnAction(e -> {
+		navMenu.getTransactionBtn().setOnAction(e -> {
 			reinitBanner(00);
 		});
 		
 		/* Purchase Orders Button */
-		purchaseOrdBtn.setOnAction(e -> {
+		navMenu.getPurchaseOrdBtn().setOnAction(e -> {
 			paneView.updatePaneViewToPurchaseOrder();
 			reinitBanner(05);
 		});
 		
 		/* Sales Reports Button */
-		salesReportBtn.setOnAction(e -> {
+		navMenu.getSalesReportBtn().setOnAction(e -> {
 			paneView.updatePaneViewToSalesReport();
 			reinitBanner(00);
 		});
 		
 		/* Inventory Button */
-		inventoryBtn.setOnAction(e -> {
+		navMenu.getInventoryBtn().setOnAction(e -> {
 			paneView.updatePaneViewToInvetory();
 			reinitBanner(03);	
 		});
 		
 		/* Customers / Debts Buttons */
-		custDebtsBtn.setOnAction(e -> {
+		navMenu.getCustDebtsBtn().setOnAction(e -> {
 			paneView.updatePaneViewToCustomerDebt();
 			reinitBanner(01);
 		});
 		
 		/* Suppliers Button */
-		suppliersBtn.setOnAction(e -> {
+		navMenu.getSuppliersBtn().setOnAction(e -> {
 			paneView.updatePaneViewToSupplier();
 			reinitBanner(04);
+			System.out.println(banner.widthProperty().getValue());
 		});
 	}
 	
 	private void reinitBanner(int bannerKey) {
-		topBox.getChildren().remove(banner);
+		midBox.getChildren().remove(banner);
 		banner = BannerFactory.getBanner(bannerKey);
-		topBox.getChildren().add(banner);
-		HBox.setHgrow(banner, Priority.ALWAYS);
+		midBox.getChildren().add(banner);
+		//HBox.setHgrow(banner, Priority.ALWAYS);
+	}
+	
+	private void initHeaderPaneHandlers() {
+		headerPane.getShowNavMenuBtn().setOnAction(e -> {
+			if (!navMenuShown) {
+				setLeft(navMenu);
+				navMenuShown = !navMenuShown;
+			} else {
+				setLeft(null);
+				navMenuShown = !navMenuShown;
+			}
+		});
 	}
 	
 	private void initTop() {
 		
-		/* Top Box Initialization */
-		topBox = new HBox(Values.TOP_BOX_ITEM_SPACING);
-		topBox.setPadding(new Insets(Values.TOP_BOX_TOP_PADDING, Values.TOP_BOX_RIGHT_PADDING, Values.TOP_BOX_BOTTOM_PADDING, Values.TOP_BOX_LEFT_PADDING));
-		//topBox.setId("");
-		/* Logo Initialization */
-		logo = new Rectangle(Values.LOGO_WIDTH, Values.LOGO_HEIGHT);
+		/* Header Pane Initialization */
+		headerPane = new HeaderPane();
 		
-		/* Banner Initialization */
-		banner = new DateBanner();
-		
-		/* Assembly of Logo and Banner in Top Box */
-		topBox.getChildren().addAll(logo, banner);
-		HBox.setHgrow(banner, Priority.ALWAYS); // Extends the banner node horizontally until it fits the entire screen relative to it's other nodes and the padding
-		HBox.setHgrow(logo, Priority.SOMETIMES);
-		setTop(topBox);
+		/* Setting to Main Pane */
+		setTop(headerPane);
 	}
 	
 	private void initMid() {
 		
 		/* Mid Box Initialization */
-		midBox = new HBox(Values.MID_BOX_ITEM_SPACING);
-		midBox.setPadding(new Insets(Values.MID_BOX_TOP_PADDING, Values.MID_BOX_RIGHT_PADDING, Values.MID_BOX_BOTTOM_PADDING, Values.MID_BOX_LEFT_PADDING));
+		midBox = new HBox();
+		//midBox.setPadding(new Insets(Values.MID_BOX_TOP_PADDING, Values.MID_BOX_RIGHT_PADDING, Values.MID_BOX_BOTTOM_PADDING, Values.MID_BOX_LEFT_PADDING));
 		
-		/* Nav Menu Initialization */
-		navMenu = new VBox(Values.NAV_MENU_ITEM_SPACING);
-		navMenu.setPrefWidth(Values.NAV_MENU_PREF_WIDTH);
-		navMenu.getChildren().addAll(transactionBtn, purchaseOrdBtn, salesReportBtn, inventoryBtn, custDebtsBtn, suppliersBtn);
-		navMenu.getChildren().forEach(node -> {
-			Button button = (Button) node;
-			button.setPrefWidth(navMenu.getPrefWidth());
-		});
+		/* Banner Initialization */
+		banner = new DateBanner();
 		
 		/* Pane View Initialization */
 		paneView  = new View();
 		paneView.updatePaneView();
 		
 		/* Assembly of Nav Menu and Pane View into MidBox */
-		midBox.getChildren().addAll(navMenu, paneView);
+		midBox.getChildren().addAll(paneView, banner);
 		HBox.setHgrow(paneView, Priority.ALWAYS);
 		setCenter(midBox);
-	}
-	
-	
-	/* This function is for the Back End Developers */
-	private TableColumn<Object, ?> fillColumns() {
-		
-		return null;
 	}
 }

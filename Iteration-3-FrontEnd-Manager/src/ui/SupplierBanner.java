@@ -1,25 +1,24 @@
 package ui;
 
 import final_values.Values;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class SupplierBanner extends Banner{
 	
-	/* Outer Left Section */
+	/* Left Section */
 	private TextField supplierCodeField;
-	private TextField supplierNameField;
 	private TextField contactPersonField;
-	
-	/* Inner Left Section */
-	private TextField contactNumberField;
 	private TextField taxIdField;
 	
-	/* Inner Right Section */
+	/* Right Section */
+	private TextField supplierNameField;
+	private TextField contactNumberField;
+
+	
+	/* Bottom Buttons */
 	private Button addConfirm;
 				
 	public SupplierBanner(){
@@ -35,7 +34,7 @@ public class SupplierBanner extends Banner{
 
 	private void initSupplierAdd() {
 		/*Contains the label and textfield combinations for left box*/
-		VBox[] leftCombos = new VBox[2];
+		VBox[] leftCombos = new VBox[3];
 		
 		/*item Code Combination*/
 		leftCombos[0] = new VBox();
@@ -44,40 +43,34 @@ public class SupplierBanner extends Banner{
 		
 		/*item descritption Combination*/
 		leftCombos[1] = new VBox();
-		contactNumberField = new TextField();
-		leftCombos[1].getChildren().addAll(new Label("Contact Number:"), contactNumberField);
+		contactPersonField = new TextField();
+		leftCombos[1].getChildren().addAll(new Label("Contact Person:"), contactPersonField);
 		
-		/*Contains the label and textfield combinations for middle box*/
-		VBox[] middleCombos = new VBox[2];
-		
-		/*Supplier Combination*/
-		middleCombos[0] = new VBox();
-		supplierNameField = new TextField();
-		middleCombos[0].getChildren().addAll(new Label("Name:"), supplierNameField);
-		
-		/*Unit price Combination*/
-		middleCombos[1] = new VBox();
+		leftCombos[2] = new VBox();
 		taxIdField = new TextField();
-		middleCombos[1].getChildren().addAll(new Label("tax ID:"), taxIdField);
+		leftCombos[2].getChildren().addAll(new Label("Tax ID:"), taxIdField);
 		
 		/*Contains the label and textfield combinations for right box*/
-		VBox rightCombos = new VBox();
-
-		/*Requisitioner Combination*/
-		rightCombos = new VBox();
-		contactPersonField = new TextField();
-		rightCombos.getChildren().addAll(new Label("Contact Person:"), contactPersonField);
+		VBox[] rightCombos = new VBox[2];
+		
+		/*Supplier Combination*/
+		rightCombos[0] = new VBox();
+		supplierNameField = new TextField();
+		rightCombos[0].getChildren().addAll(new Label("Name:"), supplierNameField);
+		
+		/*Unit price Combination*/
+		rightCombos[1] = new VBox();
+		contactNumberField = new TextField();
+		rightCombos[1].getChildren().addAll(new Label("Contact Number:"), contactNumberField);
 		
 		/*Edit Button initialization*/
 		addConfirm = new Button("Confirm Edit");
 		
-		rightSection.setSpacing(30);
-		
-		
 		/* Assembly */
-		leftSection.getChildren().addAll(leftCombos[0], leftCombos[1]);
-		middleSection.getChildren().addAll(middleCombos[0], middleCombos[1]);
-		rightSection.getChildren().addAll(rightCombos, addConfirm);
-	
+		leftColumn.getChildren().addAll(leftCombos[0], leftCombos[1], leftCombos[2]);
+		rightColumn.getChildren().addAll(rightCombos[0], rightCombos[1]);
+		setBottom(addConfirm);
+		
+		
 	}
 }

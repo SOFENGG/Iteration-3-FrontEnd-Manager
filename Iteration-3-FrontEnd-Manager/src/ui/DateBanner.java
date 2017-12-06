@@ -1,6 +1,8 @@
 package ui;
 
 import final_values.Values;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
 public class DateBanner extends Banner {
@@ -21,7 +23,7 @@ public class DateBanner extends Banner {
 		todaysDateLbl.setText(setTodaysDateLbl());
 		
 		leftSection.getChildren().addAll(todaysDateLbl);
-			
+		
 	}
 	
 	/* For Back End Developers */
