@@ -92,4 +92,8 @@ public class Values {
 	public final static double RIGHT_BOTTOM_PADDING = 0;
 	
 	public final static double INVENTORY_OPTIONS_ITEM_SPACING = 10;
+	
+	/* Popup Titles */
+	public final static String ADD_ITEM_POPUP_TITLE = "Add Item";
+	public final static String SUPPLIER_POPUP_TITLE = "Search Supplier";
 }

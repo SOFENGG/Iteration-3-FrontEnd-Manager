@@ -224,6 +224,10 @@ public class View extends BorderPane{
 		
 		/* add button Initialization */
 		addItemButton = new Button("Add Item +");
+		addItemButton.setOnMouseClicked(e -> {
+			AddItemPopup ap = new AddItemPopup(Values.ADD_ITEM_POPUP_TITLE);
+			ap.show();
+		});
 		
 		/* remove button Initialization */
 		removeItemButton = new Button("Remove Item -");

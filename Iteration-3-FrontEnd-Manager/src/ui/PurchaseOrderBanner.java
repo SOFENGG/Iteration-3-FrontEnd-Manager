@@ -57,6 +57,10 @@ public class PurchaseOrderBanner extends Banner {
 		
 		/*Edit Button initialization*/
 		supplierConfirm = new Button("Suppliers");
+		supplierConfirm.setOnMouseClicked(e -> {
+			SupplierPopup sp = new SupplierPopup(Values.SUPPLIER_POPUP_TITLE);
+			sp.show();
+		});
 		
 		/* Align Right Side */
 		rightColumn.setPadding(new Insets(20, 0, 0, 0));
