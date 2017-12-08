@@ -2,27 +2,27 @@ package ui;
 
 import final_values.Values;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 public class CustomerBanner extends Banner {
 	
-	/* Outer Left Section */
-	private Label custNameLbl;
+	/* Left Column */
 	private TextField custNameField;
-	private Label custAddressLbl;
 	private TextField custAddressField;
 	
-	/* Inner Left Section */
-	private Label debtLimitLbl;
+	/* Right Column */
 	private TextField debtLimitField;
 	
-	/* Inner Right Section */
+	/* Bottom Buttons */
 	private Button addCustomerBtn;
 	
 	public CustomerBanner() {
 		super();
 		updateToCustomerDebts();
+		setPositions();
 		initButtonHandlers();
 	}
 	
@@ -32,7 +32,6 @@ public class CustomerBanner extends Banner {
 			/* Add Customer Button */
 			
 		});
-		
 	}
 	
 	private void updateToCustomerDebts() {
@@ -40,36 +39,36 @@ public class CustomerBanner extends Banner {
 		/* Banner Title */
 		bannerTitle.setText(Values.BANNER_CUSTOMER);
 		
-		/* Outer Left Section */
+		/* Left Column */
+		VBox[] leftCombos = new VBox[2];
 		
-			custNameLbl = new Label("Customer Name:");
-			
-			custNameField = new TextField();
-			
-			custAddressLbl = new Label("Customer Address:");
-			
-			custAddressField = new TextField();
-			
-			leftSection.getChildren().addAll(custNameLbl, custNameField, custAddressLbl, custAddressField);
+		leftCombos[0] = new VBox();
+		custNameField = new TextField();
+		leftCombos[0].getChildren().addAll(new Label("Customer Name:"), custNameField);
 		
-		/* Inner Left Section */
-			debtLimitLbl = new Label("Debt Limit:");
+		leftCombos[1] = new VBox();
+		custAddressField = new TextField();
+		leftCombos[1].getChildren().addAll(new Label("Address:"), custAddressField);
 			
-			debtLimitField = new TextField();
 			
-			middleSection.getChildren().addAll(debtLimitLbl, debtLimitField);
 		
-		/* Inner Right Section */
+		/* Right Column */	
+		VBox rightCombos = new VBox();
+		debtLimitField = new TextField();
+		rightCombos.getChildren().addAll(new Label("Debt Limit:"), debtLimitField);
 		
-		//	rightSection.setPadding(new Insets(Values.RIGHT_TOP_PADDING, Values.RIGHT_RIGHT_PADDING, Values.RIGHT_BOTTOM_PADDING, Values.RIGHT_LEFT_PADDING));
-
-			addCustomerBtn = new Button("Add Customer");
-			
-			//setBottom(addCustomerBtn);
-			
-		//	rightSection.getChildren().addAll(addCustomerBtn);
+		/* Bottom Buttons */
+		addCustomerBtn = new Button("Add Customer");
 		
-		
+		/* Assembly */
+		leftColumn.getChildren().addAll(leftCombos[0], leftCombos[1]);
+		rightColumn.getChildren().addAll(rightCombos);
+		setBottom(addCustomerBtn);
+	}
+	
+	private void setPositions() {
+		setAlignment(addCustomerBtn, Pos.CENTER_RIGHT);
+		setMargin(addCustomerBtn, new Insets(0, 20, 20, 0));
 	}
 	
 }

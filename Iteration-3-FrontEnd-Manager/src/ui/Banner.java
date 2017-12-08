@@ -3,26 +3,22 @@ package ui;
 import final_values.Values;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-public class Banner extends BorderPane {
+public abstract class Banner extends BorderPane {
 	
 	protected VBox bannerDetails;
 		protected Label bannerTitle;
 		protected HBox bannerContents;
-			protected VBox leftSection;
-			protected VBox middleSection;		
-			protected VBox rightSection;
 			protected VBox leftColumn;
 			protected VBox rightColumn;
 				
 	public Banner() {
 		setId("Banner");
+		setPrefWidth(Values.BANNER_PREF_WIDTH);
 		initBanner();
-		//setStyle("-fx-border-radius: 10; -fx-border-color: #000000;");
 	}
 	
 	private void initBanner() {
@@ -38,15 +34,8 @@ public class Banner extends BorderPane {
 		bannerContents.setPadding(new Insets(Values.BANNER_CONTENTS_TOP_PADDING, Values.BANNER_CONTENTS_RIGHT_PADDING, Values.BANNER_CONTENTS_BOTTOM_PADDING, Values.BANNER_CONTENTS_LEFT_PADDING));
 		
 		/* Banner Contents Sections Initialization */
-			leftSection = new VBox(Values.LEFT_SPACING);
-			
-			middleSection = new VBox(Values.MIDDLE_SPACING);
-			
-			rightSection = new VBox(Values.RIGHT_ITEM_SPACING);
-			
-			leftColumn = new VBox(Values.LEFT_SPACING);
-			
-			rightColumn = new VBox(Values.RIGHT_ITEM_SPACING);
+		leftColumn = new VBox(Values.LEFT_SPACING);
+		rightColumn = new VBox(Values.RIGHT_ITEM_SPACING);
 		
 		/* Assembly */
 		bannerContents.getChildren().addAll(leftColumn, rightColumn);

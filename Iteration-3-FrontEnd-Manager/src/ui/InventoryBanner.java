@@ -1,6 +1,8 @@
 package ui;
 
 import final_values.Values;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,13 +21,14 @@ public class InventoryBanner extends Banner{
 	private TextField unitPriceField;
 	
 	/* Bottom Buttons */
-	private Button editConfirm;
+	private Button editConfirmBtn;
 
 		
 		
 	public InventoryBanner() {
 		super();
 		updateToInventoryBanner();
+		setPositions();
 	}
 	
 	private void updateToInventoryBanner() {
@@ -67,13 +70,18 @@ public class InventoryBanner extends Banner{
 		rightCombos[1].getChildren().addAll(new Label("Unit Price:"), unitPriceField);
 		
 		/*Edit Button initialization*/
-		editConfirm = new Button("Confirm Edit");
+		editConfirmBtn = new Button("Confirm Edit");
 		
 		
 		/* Assembly */
 		leftColumn.getChildren().addAll(leftCombos[0], leftCombos[1], leftCombos[2]);
 		rightColumn.getChildren().addAll(rightCombos[0], rightCombos[1]);
-		setBottom(editConfirm);
-	
+		setBottom(editConfirmBtn);
 	}
+	
+	private void setPositions() {
+		setAlignment(editConfirmBtn, Pos.CENTER_RIGHT);
+		setMargin(editConfirmBtn, new Insets(0, 20, 20, 0));
+	}
+	
 }
