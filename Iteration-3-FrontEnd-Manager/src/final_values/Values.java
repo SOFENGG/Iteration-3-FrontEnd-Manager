@@ -96,4 +96,5 @@ public class Values {
 	/* Popup Titles */
 	public final static String ADD_ITEM_POPUP_TITLE = "Add Item";
 	public final static String SUPPLIER_POPUP_TITLE = "Search Supplier";
+	public final static String FILTER_POPUP_TITLE = "Apply Filter";
 }

@@ -151,9 +151,10 @@ public class View extends BorderPane{
 		
 		/* sales order Button Initialization */
 		saleSearchButton = new Button("SEARCH");
-		
+
 		/* Assembly of previously specified components*/
 		salesOrderOptions.getChildren().addAll(saleSearchColumns, saleSearchField, saleSearchButton);
+				
 		
 	}
 
@@ -350,6 +351,10 @@ public class View extends BorderPane{
 		
 		/* Filter Button Initialization */
 		filterButton = new Button("O " + "Filter"); // the O character to be replaced with the filter icon
+		filterButton.setOnAction(e -> {
+			FilterPopup fp = new FilterPopup(Values.FILTER_POPUP_TITLE);
+			fp.show();
+		});
 		
 		/* Assembly of Search Columns, Search Field, Search Button and Filter Button into Filter Options */
 		filterOptions.getChildren().addAll(searchColumns, searchField, searchButton);
