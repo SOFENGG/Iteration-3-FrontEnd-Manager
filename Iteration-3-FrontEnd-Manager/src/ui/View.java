@@ -41,8 +41,14 @@ public abstract class View extends BorderPane{
 
 	private void initActionButtons() {
 		actionButtons = new HBox(10);
+
+		addItemButton.setOnMouseClicked(e -> {
+			AddItemPopup ap = new AddItemPopup(Values.ADD_ITEM_POPUP_TITLE);
+			ap.show();
+		});
 		setAlignment(actionButtons, Pos.CENTER);
 		setMargin(actionButtons, new Insets(5, 0, 5, 10));
+
 	}
 	
 	
@@ -70,6 +76,10 @@ public abstract class View extends BorderPane{
 		
 		/* Filter Button Initialization */
 		filterButton = new Button("O " + "Filter"); // the O character to be replaced with the filter icon
+		filterButton.setOnAction(e -> {
+			FilterPopup fp = new FilterPopup(Values.FILTER_POPUP_TITLE);
+			fp.show();
+		});
 		
 		/* Assembly of Search Columns, Search Field, Search Button and Filter Button into Filter Options */
 		filterOptions.getChildren().addAll(searchColumns, searchField, searchButton);
