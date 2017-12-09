@@ -1,16 +1,10 @@
 package ui;
 
-
-import final_values.Values;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import ui_factories.BannerFactory;
+import ui_factories.ViewFactory;
 
 public class ManagerView extends BorderPane {
 		
@@ -33,7 +27,7 @@ public class ManagerView extends BorderPane {
 	
 	private void initPane() {
 		setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-		 navMenu = new NavMenuPane();
+		navMenu = new NavMenuPane();
 		initTop();
 		initMid();
 	}
@@ -42,46 +36,52 @@ public class ManagerView extends BorderPane {
 	private void initNavMenuHandlers() {
 		/* Transaction Button */
 		navMenu.getTransactionBtn().setOnAction(e -> {
+			reinitView(00);
 			reinitBanner(00);
 		});
 		
 		/* Purchase Orders Button */
 		navMenu.getPurchaseOrdBtn().setOnAction(e -> {
-			paneView.updatePaneViewToPurchaseOrder();
+			reinitView(04);
 			reinitBanner(05);
 		});
 		
 		/* Sales Reports Button */
 		navMenu.getSalesReportBtn().setOnAction(e -> {
-			paneView.updatePaneViewToSalesReport();
-			reinitBanner(00);
+			reinitView(05);
+			reinitBanner(06);
 		});
 		
 		/* Inventory Button */
 		navMenu.getInventoryBtn().setOnAction(e -> {
-			paneView.updatePaneViewToInvetory();
+			reinitView(02);
 			reinitBanner(03);	
 		});
 		
 		/* Customers / Debts Buttons */
 		navMenu.getCustDebtsBtn().setOnAction(e -> {
-			paneView.updatePaneViewToCustomerDebt();
+			reinitView(01);
 			reinitBanner(01);
 		});
 		
 		/* Suppliers Button */
 		navMenu.getSuppliersBtn().setOnAction(e -> {
-			paneView.updatePaneViewToSupplier();
+			reinitView(03);
 			reinitBanner(04);
-			System.out.println(banner.widthProperty().getValue());
 		});
+	}
+	
+	private void reinitView(int viewKey) {
+		midBox.getChildren().remove(paneView);
+		paneView = ViewFactory.getView(viewKey);
+		midBox.getChildren().add(paneView);
+		HBox.setHgrow(paneView, Priority.ALWAYS);
 	}
 	
 	private void reinitBanner(int bannerKey) {
 		midBox.getChildren().remove(banner);
 		banner = BannerFactory.getBanner(bannerKey);
 		midBox.getChildren().add(banner);
-		//HBox.setHgrow(banner, Priority.ALWAYS);
 	}
 	
 	private void initHeaderPaneHandlers() {
@@ -112,11 +112,10 @@ public class ManagerView extends BorderPane {
 		//midBox.setPadding(new Insets(Values.MID_BOX_TOP_PADDING, Values.MID_BOX_RIGHT_PADDING, Values.MID_BOX_BOTTOM_PADDING, Values.MID_BOX_LEFT_PADDING));
 		
 		/* Banner Initialization */
-		banner = new DateBanner();
+		banner = BannerFactory.getBanner(00);
 		
 		/* Pane View Initialization */
-		paneView  = new View();
-		paneView.updatePaneView();
+		paneView  = ViewFactory.getView(00);
 		
 		/* Assembly of Nav Menu and Pane View into MidBox */
 		midBox.getChildren().addAll(paneView, banner);

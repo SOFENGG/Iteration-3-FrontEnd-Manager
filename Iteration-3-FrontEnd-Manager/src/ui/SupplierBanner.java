@@ -1,6 +1,8 @@
 package ui;
 
 import final_values.Values;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,11 +21,12 @@ public class SupplierBanner extends Banner{
 
 	
 	/* Bottom Buttons */
-	private Button addConfirm;
+	private Button addConfirmBtn;
 				
 	public SupplierBanner(){
 		super();
 		updateToSupplierBanner();
+		setPositions();
 	}
 
 	private void updateToSupplierBanner() {
@@ -56,7 +59,7 @@ public class SupplierBanner extends Banner{
 		/*Supplier Combination*/
 		rightCombos[0] = new VBox();
 		supplierNameField = new TextField();
-		rightCombos[0].getChildren().addAll(new Label("Name:"), supplierNameField);
+		rightCombos[0].getChildren().addAll(new Label("Supplier Name:"), supplierNameField);
 		
 		/*Unit price Combination*/
 		rightCombos[1] = new VBox();
@@ -64,13 +67,18 @@ public class SupplierBanner extends Banner{
 		rightCombos[1].getChildren().addAll(new Label("Contact Number:"), contactNumberField);
 		
 		/*Edit Button initialization*/
-		addConfirm = new Button("Confirm Edit");
+		addConfirmBtn = new Button("Add Supplier");
 		
 		/* Assembly */
 		leftColumn.getChildren().addAll(leftCombos[0], leftCombos[1], leftCombos[2]);
 		rightColumn.getChildren().addAll(rightCombos[0], rightCombos[1]);
-		setBottom(addConfirm);
-		
-		
+		setBottom(addConfirmBtn);	
 	}
+	
+	private void setPositions() {
+		setAlignment(addConfirmBtn, Pos.CENTER_RIGHT);
+		setMargin(addConfirmBtn, new Insets(0, 20, 20, 0));
+	}
+	
+	
 }

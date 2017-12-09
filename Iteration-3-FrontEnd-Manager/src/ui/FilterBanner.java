@@ -26,6 +26,7 @@ public class FilterBanner extends Banner {
 		/* Banner Title */
 		bannerTitle.setText(Values.BANNER_FILTER);
 		
+		/* Left Column */
 		dateYearTitleLbl = new Label();
 		dateYearTitleLbl.setText(Values.DATE_YEAR);
 		
@@ -37,11 +38,8 @@ public class FilterBanner extends Banner {
 		
 		initFilterLabels();
 		
-		leftSection.getChildren().addAll(dateYearTitleLbl, dateYearFilterLbl);
-		
-		middleSection.getChildren().addAll(weekTitleLbl, weekFilterLbl);
-		
-		rightSection.getChildren().addAll(orderTitleLbl, orderFilterLbl);
+		leftColumn.getChildren().addAll(dateYearTitleLbl, weekTitleLbl, orderTitleLbl);
+		rightColumn.getChildren().addAll(dateYearFilterLbl, weekFilterLbl, orderFilterLbl);
 		
 	}
 	

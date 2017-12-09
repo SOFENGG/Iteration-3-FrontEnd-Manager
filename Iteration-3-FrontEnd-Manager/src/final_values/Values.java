@@ -18,6 +18,8 @@ public class Values {
 	
 	public final static String BANNER_SUPPLIER = "Add Supplier:";
 	
+	public final static String BANNER_SALES_REPORT = "Sales Reports:";
+	
 	/* Banner Filter Titles */
 	public final static String DATE_YEAR = "Date & Year:";
 	
@@ -26,6 +28,8 @@ public class Values {
 	public final static String ORDER = "Order:";
 	
 	/* Sizes Width and Height */
+	public final static double BANNER_PREF_WIDTH = 406;
+	
 	public final static double LOGO_WIDTH = 175;
 	public final static double LOGO_HEIGHT = 175;
 	

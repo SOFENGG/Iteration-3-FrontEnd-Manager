@@ -7,6 +7,7 @@ import ui.FilterBanner;
 import ui.InventoryBanner;
 import ui.SupplierBanner;
 import ui.PurchaseOrderBanner;
+import ui.SalesReportBanner;
 
 public class BannerFactory {
 	
@@ -16,6 +17,7 @@ public class BannerFactory {
 	private final static int BANNER_INVENTORY_CODE = 03;
 	private final static int BANNER_SUPPLIER_CODE = 04;
 	private final static int BANNER_PURCHASE_ORDER_CODE = 05;
+	private final static int BANNER_SALES_REPORT_CODE = 06;
 	
 	public static Banner getBanner(int code) {
 		
@@ -32,8 +34,10 @@ public class BannerFactory {
 			return new SupplierBanner();
 		case BANNER_PURCHASE_ORDER_CODE:
 			return new PurchaseOrderBanner();
+		case BANNER_SALES_REPORT_CODE:
+			return new SalesReportBanner();
 		default:
-			return new Banner();
+			return new DateBanner();
 		
 		}
 		

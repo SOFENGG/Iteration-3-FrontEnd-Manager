@@ -2,6 +2,7 @@ package ui;
 
 import final_values.Values;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,8 +16,11 @@ public class PurchaseOrderBanner extends Banner {
 	private TextField requisitionerField;
 	
 	/* Right Section */
-	private Button supplierConfirm;
+	private Button suppliersBtn;
 	private TextField documentTitleField;
+	
+	/* Bottom Buttons */
+	private Button confirmOrderBtn; 
 	
 	public PurchaseOrderBanner() {
 		super();
@@ -27,6 +31,7 @@ public class PurchaseOrderBanner extends Banner {
 		/* Banner Title */
 		bannerTitle.setText(Values.BANNER_PURCHASE_ORDER);
 		initPurchaseOrders();
+		setPositions();
 	}
 
 	private void initPurchaseOrders() {
@@ -56,19 +61,28 @@ public class PurchaseOrderBanner extends Banner {
 		rightCombos[0].getChildren().addAll(new Label("Document Title:"), documentTitleField);
 		
 		/*Edit Button initialization*/
-		supplierConfirm = new Button("Suppliers");
-		supplierConfirm.setOnMouseClicked(e -> {
+		suppliersBtn = new Button("Suppliers");
+		suppliersBtn.setOnMouseClicked(e -> {
 			SupplierPopup sp = new SupplierPopup(Values.SUPPLIER_POPUP_TITLE);
 			sp.show();
 		});
+
 		
 		/* Align Right Side */
 		rightColumn.setPadding(new Insets(20, 0, 0, 0));
 		
+		/* Bottom Buttons */
+		confirmOrderBtn = new Button("Confirm Order");
+		
 		/* Assembly */
 		leftColumn.getChildren().addAll(leftCombos[0], leftCombos[1], leftCombos[2]);
-		rightColumn.getChildren().addAll(supplierConfirm, rightCombos[0]);
+		rightColumn.getChildren().addAll(suppliersBtn, rightCombos[0]);
+		setBottom(confirmOrderBtn);	
+	}
 	
+	private void setPositions() {
+		setAlignment(confirmOrderBtn, Pos.CENTER_RIGHT);
+		setMargin(confirmOrderBtn, new Insets(0, 20, 20, 0));
 	}
 
 }
