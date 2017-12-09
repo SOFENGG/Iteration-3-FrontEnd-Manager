@@ -31,7 +31,15 @@ public class PurchaseOrderBanner extends Banner {
 		/* Banner Title */
 		bannerTitle.setText(Values.BANNER_PURCHASE_ORDER);
 		initPurchaseOrders();
+		initHandlers();
 		setPositions();
+	}
+	
+	private void initHandlers() {
+		suppliersBtn.setOnMouseClicked(e -> {
+			SupplierPopup sp = new SupplierPopup(Values.SUPPLIER_POPUP_TITLE);
+			sp.show();
+		});
 	}
 
 	private void initPurchaseOrders() {
@@ -62,12 +70,7 @@ public class PurchaseOrderBanner extends Banner {
 		
 		/*Edit Button initialization*/
 		suppliersBtn = new Button("Suppliers");
-		suppliersBtn.setOnMouseClicked(e -> {
-			SupplierPopup sp = new SupplierPopup(Values.SUPPLIER_POPUP_TITLE);
-			sp.show();
-		});
 
-		
 		/* Align Right Side */
 		rightColumn.setPadding(new Insets(20, 0, 0, 0));
 		

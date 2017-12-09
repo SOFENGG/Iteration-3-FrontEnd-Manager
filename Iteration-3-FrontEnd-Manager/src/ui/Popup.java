@@ -29,7 +29,7 @@ public abstract class Popup extends Stage {
 		scene.setRoot(value);
 		sizeToScene();
 		setScene(scene);
-		showAndWait();
+		//showAndWait();
 	}
 	
 	public void resizeScene() {

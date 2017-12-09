@@ -1,5 +1,6 @@
 package ui;
 
+import final_values.Values;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -15,6 +16,14 @@ public class PurchaseOrderView extends View{
 		super();
 		addUniqueToViewNodes();
 		setUniqueToViewTableAndFilter();
+		initHandlers();
+	}
+	
+	private void initHandlers() {
+		addItemBtn.setOnMouseClicked(e -> {
+			AddItemPopup ap = new AddItemPopup(Values.ADD_ITEM_POPUP_TITLE);
+			ap.show();
+		});
 	}
 	
 	private void addUniqueToViewNodes() {
