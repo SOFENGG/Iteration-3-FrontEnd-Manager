@@ -1,10 +1,10 @@
 package ui;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -26,7 +26,7 @@ public class AddItemPopup extends Popup {
 			private Button searchButton;
 		private HBox buttonsHBox;
 			private Label qty;
-			private Spinner qtySpinner;
+			private Spinner<Integer> qtySpinner;
 			private Button addButton;
 		private VBox newItemVBox;
 			private Label itemCodeLabel;
@@ -51,6 +51,7 @@ public class AddItemPopup extends Popup {
 	public void initScene() {
 		layout = new VBox (10);
 		layout.setId("Popup");
+		layout.setPadding(new Insets(10, 10, 10, 10));
 		
 			itemTypeHBox = new HBox(20);
 		
@@ -90,7 +91,8 @@ public class AddItemPopup extends Popup {
 				
 				qty = new Label("Quantity:");
 				
-				qtySpinner = new Spinner();
+				qtySpinner = new Spinner<Integer>(0, 999, 0, 1);
+				qtySpinner.setEditable(true);
 				
 				addButton = new Button("Add Item");
 				

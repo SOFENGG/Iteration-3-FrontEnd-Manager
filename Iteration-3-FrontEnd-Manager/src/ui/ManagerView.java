@@ -11,9 +11,9 @@ public class ManagerView extends BorderPane {
 	/* Node Variables */
 		private HeaderPane headerPane;
 		private NavMenuPane navMenu;
-		private HBox midBox;
+		private static HBox midBox;
 			private View paneView;
-			private Banner banner;
+			private static Banner banner;
 		
 		
 	/* boolean */
@@ -78,7 +78,7 @@ public class ManagerView extends BorderPane {
 		HBox.setHgrow(paneView, Priority.ALWAYS);
 	}
 	
-	private void reinitBanner(int bannerKey) {
+	protected static void reinitBanner(int bannerKey) {
 		midBox.getChildren().remove(banner);
 		banner = BannerFactory.getBanner(bannerKey);
 		midBox.getChildren().add(banner);
@@ -121,5 +121,9 @@ public class ManagerView extends BorderPane {
 		midBox.getChildren().addAll(paneView, banner);
 		HBox.setHgrow(paneView, Priority.ALWAYS);
 		setCenter(midBox);
+	}
+	
+	protected void setBanner(int code) {
+		reinitBanner(code);
 	}
 }

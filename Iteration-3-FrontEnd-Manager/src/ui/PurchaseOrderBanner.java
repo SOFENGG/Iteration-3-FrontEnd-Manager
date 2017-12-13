@@ -49,6 +49,7 @@ public class PurchaseOrderBanner extends Banner {
 		/*Supplier Name Combination*/
 		leftCombos[0] = new VBox();
 		supplierNameField = new TextField();
+		supplierNameField.setEditable(false);
 		leftCombos[0].getChildren().addAll(new Label("Supplier Name:"), supplierNameField);
 		
 		/*Invoice Combination*/

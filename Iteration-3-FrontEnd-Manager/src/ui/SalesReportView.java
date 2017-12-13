@@ -1,5 +1,6 @@
 package ui;
 
+import final_values.Values;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -31,7 +32,7 @@ public class SalesReportView extends View {
 		/* Assembly */
 		actionButtons.getChildren().addAll(createReportBtn, reportDetailsBtn);
 		
-		actionButtons.setPrefHeight(30);
+		actionButtons.setPrefHeight(Values.ACTION_BUTTONS_PREF_WIDTH);
 	}
 	
 	/* For the Back End Developers */

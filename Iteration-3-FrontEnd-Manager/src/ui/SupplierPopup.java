@@ -1,5 +1,6 @@
 package ui;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -30,6 +31,7 @@ public class SupplierPopup extends Popup {
 	private void initScene() {
 		layout = new VBox (10);
 		layout.setId("Popup");
+		layout.setPadding(new Insets(10, 10, 10, 10));
 		
 			searchHBox = new HBox (20);
 			searchHBox.setAlignment(Pos.CENTER);

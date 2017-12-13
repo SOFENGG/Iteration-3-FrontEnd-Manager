@@ -1,5 +1,6 @@
 package ui;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -67,6 +68,7 @@ public class FilterPopup extends Popup {
 	public void initScene() {
 		layout = new VBox (20);
 		layout.setId("Popup");
+		layout.setPadding(new Insets(10, 10, 20, 10));
 		
 			filterFromLabel = new Label ("Filter from:");
 			
@@ -102,6 +104,7 @@ public class FilterPopup extends Popup {
 			//custom filters
 			customFilterVBox = new VBox(20);
 			customFilterVBox.setId("CustomFilter");
+			customFilterVBox.setPadding(new Insets(10, 10, 20, 10));
 			
 				dateAndYearLabel = new Label("Date & Year:");
 				
@@ -116,7 +119,7 @@ public class FilterPopup extends Popup {
 				dateAndYearHBox.getChildren().addAll(startDatePicker, toLabel, endDatePicker);
 				
 				weekLabel = new Label("Week:");
-				weekHBox = new HBox();
+				weekHBox = new HBox(10);
 					daysGroup = new ToggleGroup();
 					
 					allWeekRadioButton = new RadioButton("All week");
@@ -130,19 +133,19 @@ public class FilterPopup extends Popup {
 				
 				dayHBox = new HBox(20);
 					
-					sundayCheckBox = new CheckBox("Sunday");
+					sundayCheckBox = new CheckBox("S");
 					
-					mondayCheckBox = new CheckBox("Monday");
+					mondayCheckBox = new CheckBox("M");
 					
-					tuesdayCheckBox = new CheckBox("Tuesday");
+					tuesdayCheckBox = new CheckBox("T");
 					
-					wednesdayCheckBox = new CheckBox("Wednesday");
+					wednesdayCheckBox = new CheckBox("W");
 					
-					thursdayCheckBox = new CheckBox("Thursday");
+					thursdayCheckBox = new CheckBox("TH");
 					
-					fridayCheckBox = new CheckBox("Friday");
+					fridayCheckBox = new CheckBox("F");
 					
-					saturdayCheckBox = new CheckBox("Saturday");
+					saturdayCheckBox = new CheckBox("ST");
 				
 				orderLabel = new Label("Order:");
 				

@@ -43,6 +43,8 @@ public class Values {
 	
 	public final static double HEADER_PANE_CONTENTS_WIDTH = 75;
 	public final static double HEADER_PANE_CONTENTS_HEIGHT = 75;
+	
+	public final static double ACTION_BUTTONS_PREF_WIDTH = 30;
 
 	/* Insets for Padding and Spacing*/
 	public final static double TOP_BOX_ITEM_SPACING = 10;

@@ -19,8 +19,8 @@ public class Driver extends Application{
 			primaryStage.setTitle(WINDOW_TITLE);
 			
 			/* Setting of Height and Width */
-				primaryStage.setMinWidth(1280);
-				primaryStage.setMinHeight(720);
+				//primaryStage.setMinWidth(1280);
+				//primaryStage.setMinHeight(720);
 			
 			/* Scene Creation */
 				Scene scene = new Scene(new Group(), primaryStage.getWidth(), primaryStage.getHeight());

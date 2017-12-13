@@ -60,7 +60,7 @@ public abstract class View extends BorderPane{
 		/* Filter Options Initialization */
 		filterOptions = new HBox(Values.FILTER_OPTIONS_ITEM_SPACING);
 		filterOptions.setPrefHeight(Values.FILTER_OPTIONS_PREF_HEIGHT);
-		filterOptions.setPadding(new Insets(10, 0, 0, 0));
+		filterOptions.setPadding(new Insets(10, 0, 0, 10));
 		
 		/* Search Columns Initialization */
 		searchColumns = new ComboBox<String>();
@@ -82,4 +82,5 @@ public abstract class View extends BorderPane{
 	protected void addFilterButton() {
 		filterOptions.getChildren().add(filterButton);
 	}
+	
 }

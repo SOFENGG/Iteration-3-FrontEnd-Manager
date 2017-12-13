@@ -39,7 +39,7 @@ public class PurchaseOrderView extends View{
 		/* Assembly */
 		actionButtons.getChildren().addAll(addItemBtn, removeItemBtn, clearAllBtn);
 		
-		actionButtons.setPrefHeight(30);
+		actionButtons.setPrefHeight(Values.ACTION_BUTTONS_PREF_WIDTH);
 	}
 	
 	/* For the Back End Developers */
